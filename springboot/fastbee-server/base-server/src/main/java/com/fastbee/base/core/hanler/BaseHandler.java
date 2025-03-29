@@ -3,7 +3,7 @@ package com.fastbee.base.core.hanler;
 import com.fastbee.common.core.protocol.Message;
 import com.fastbee.base.session.Session;
 
-import sun.reflect.generics.reflectiveObjects.ParameterizedTypeImpl;
+import java.lang.reflect.ParameterizedType;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
@@ -44,8 +44,8 @@ public abstract class BaseHandler {
             for (int i = 0; i < types.length; i++) {
                 Type type = types[i];
                 Class<?> clazz;
-                if (type instanceof ParameterizedTypeImpl) {
-                    clazz = (Class<?>) ((ParameterizedTypeImpl) type).getActualTypeArguments()[0];
+                if (type instanceof ParameterizedType) {
+                    clazz = (Class<?>) ((ParameterizedType) type).getActualTypeArguments()[0];
                 } else {
                     clazz = (Class<?>) type;
                 }
